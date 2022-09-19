@@ -1,0 +1,10 @@
+.toolbar {
+  background: #05445e;
+  color: #ffffff;
+}
+
+.menu-button {
+  width: 50px;
+  border: none;
+  background: transparent;
+}

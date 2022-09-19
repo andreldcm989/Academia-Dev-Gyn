@@ -1,0 +1,54 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+table,
+.card-toolbar {
+  width: 50%;
+  text-align: center;
+}
+.card-toolbar {
+  display: flex;
+  justify-content: space-between;
+  background: #228396;
+  color: white;
+}
+
+.coluna {
+  text-align: center;
+  font-size: 1rem;
+  color: black;
+  background: #d4f1f4;
+}
+
+.botao {
+  width: 60px;
+  height: 20px;
+  margin: 5px;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  transition: 0.2s all ease;
+}
+
+.botao:hover {
+  transform: scale(1.05);
+}
+
+.botao-toolbar {
+  background: #69c4eb;
+  color: #000000;
+  width: 130px;
+  height: 25px;
+}
+.botao-editar {
+  background: #10687a;
+  color: #ffffff;
+}
+.botao-excluir {
+  background: #c61414;
+  color: #ffffff;
+}

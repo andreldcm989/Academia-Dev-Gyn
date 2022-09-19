@@ -1,0 +1,45 @@
+<mat-card class="card">
+  <mat-toolbar class="card-toolbar">
+    <span>Lista de Modalidades</span>
+    <button class="botao botao-toolbar">Nova Modalidade</button>
+  </mat-toolbar>
+  <table
+    mat-table
+    [dataSource]="modalidades"
+    class="mat-elevation-z8"
+    *ngIf="modalidades.length > 0; else tabelaVazia"
+  >
+    <ng-container matColumnDef="id">
+      <th mat-header-cell class="coluna" *matHeaderCellDef>Id</th>
+      <td mat-cell *matCellDef="let modalidade">{{ modalidade._id }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="nomeModalidade">
+      <th mat-header-cell class="coluna" *matHeaderCellDef>Modalidade</th>
+      <td mat-cell *matCellDef="let modalidade">
+        {{ modalidade.nomeModalidade }}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="dataCriacao">
+      <th mat-header-cell class="coluna" *matHeaderCellDef>Data Criação</th>
+      <td mat-cell *matCellDef="let modalidade">
+        {{ modalidade.dataCriacao }}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="opcoes">
+      <th mat-header-cell class="coluna" *matHeaderCellDef>Opções</th>
+      <td mat-cell *matCellDef="let modalidade">
+        <button class="botao botao-editar">Editar</button>
+        <button class="botao botao-excluir">Excluir</button>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="ordemColunas"></tr>
+    <tr mat-row *matRowDef="let row; columns: ordemColunas"></tr>
+  </table>
+  <ng-template #tabelaVazia>
+    <h2>Nenhuma modalidade cadastrada.</h2>
+  </ng-template>
+</mat-card>
