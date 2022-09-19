@@ -26,6 +26,10 @@ public class Modalidade implements Serializable {
     public Modalidade() {
     }
 
+    public Modalidade(String nome) {
+        this.nomeModalidade = nome;
+    }
+
     public Modalidade(String nome, String dataCriacao) {
         this.nomeModalidade = nome;
         this.dataCriacao = dataCriacao;
