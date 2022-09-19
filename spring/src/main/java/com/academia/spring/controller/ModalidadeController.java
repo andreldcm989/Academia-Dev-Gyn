@@ -1,7 +1,6 @@
 package com.academia.spring.controller;
 
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -32,10 +31,6 @@ public class ModalidadeController {
 
     @GetMapping("/{id}")
     public ResponseEntity<Object> buscarPorId(@PathVariable(value = "id") Long id) {
-        Optional<Modalidade> modalidade = service.buscarPorId(id);
-        if (!modalidade.isPresent()) {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Modalidade não encontrada.");
-        }
         return ResponseEntity.status(HttpStatus.OK).body(service.buscarPorId(id));
     }
 
@@ -49,11 +44,14 @@ public class ModalidadeController {
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Object> deletarModalidade(@PathVariable(value = "id") Long id) {
-        Optional<Modalidade> modalidade = service.buscarPorId(id);
-        if (!modalidade.isPresent()) {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Modalidade não encontrada");
-        }
         service.excluirModalidade(id);
         return ResponseEntity.ok().body("Modalidade excluída com sucesso.");
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<Object> atualizarModalidade(@PathVariable(value = "id") Long id,
+            @RequestBody Modalidade modalidade) {
+        modalidade = service.atualizarModalidade(id, modalidade);
+        return ResponseEntity.ok().body(modalidade);
     }
 }

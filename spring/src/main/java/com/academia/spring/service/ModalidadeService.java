@@ -1,13 +1,16 @@
 package com.academia.spring.service;
 
 import java.util.List;
-import java.util.Optional;
+
+import javax.persistence.EntityNotFoundException;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
 
 import com.academia.spring.model.Modalidade;
 import com.academia.spring.repository.ModalidadeRepository;
+import com.academia.spring.service.exceptions.ResourceNotFoundException;
 
 @Service
 public class ModalidadeService {
@@ -23,8 +26,8 @@ public class ModalidadeService {
         return repository.existsByNomeModalidade(nome);
     }
 
-    public Optional<Modalidade> buscarPorId(Long id) {
-        return repository.findById(id);
+    public Modalidade buscarPorId(Long id) {
+        return repository.findById(id).orElseThrow(() -> new ResourceNotFoundException(id));
     }
 
     public Modalidade salvarModalidade(Modalidade modalidade) {
@@ -32,7 +35,22 @@ public class ModalidadeService {
     }
 
     public void excluirModalidade(Long id) {
-        repository.deleteById(id);
+        try {
+            repository.deleteById(id);
+        } catch (EmptyResultDataAccessException e) {
+            throw new ResourceNotFoundException(id);
+        }
+    }
+
+    public Modalidade atualizarModalidade(Long id, Modalidade modalidade) {
+        try {
+            Modalidade model = repository.getReferenceById(id);
+            model.setNomeModalidade(modalidade.getNomeModalidade());
+            return repository.save(model);
+        } catch (EntityNotFoundException e) {
+            e.printStackTrace();
+            throw new ResourceNotFoundException(id);
+        }
     }
 
 }
