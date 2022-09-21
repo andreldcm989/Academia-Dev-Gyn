@@ -18,7 +18,7 @@ import com.academia.spring.model.Modalidade;
 import com.academia.spring.service.ModalidadeService;
 
 @RestController
-@RequestMapping("/academia/modalidade")
+@RequestMapping("api/academia/modalidades")
 public class ModalidadeController {
 
     @Autowired

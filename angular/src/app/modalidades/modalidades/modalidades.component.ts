@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
+import { Observable } from 'rxjs';
 import { Modalidade } from '../model/modalidade';
+import { ModalidadesService } from '../services/modalidades.service';
 
 @Component({
   selector: 'app-modalidades',
@@ -8,10 +10,13 @@ import { Modalidade } from '../model/modalidade';
 })
 export class ModalidadesComponent {
   ordemColunas: string[] = ['id', 'nomeModalidade', 'dataCriacao', 'opcoes'];
-  modalidades: Modalidade[] = [
-    { _id: 1, nomeModalidade: 'Natação', dataCriacao: '19/09/2022' },
-    { _id: 2, nomeModalidade: 'Hidroginástica', dataCriacao: '19/09/2022' },
-    { _id: 3, nomeModalidade: 'CrossFit', dataCriacao: '19/09/2022' },
-    { _id: 4, nomeModalidade: 'Pilates', dataCriacao: '19/09/2022' },
-  ];
+  modalidades$: Observable<Modalidade[]> | null = null;
+
+  constructor(private service: ModalidadesService) {
+    this.atualizarTabela();
+  }
+
+  atualizarTabela() {
+    this.modalidades$ = this.service.listarModalidades();
+  }
 }

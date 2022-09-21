@@ -1,13 +1,16 @@
 <mat-card class="card">
   <mat-toolbar class="card-toolbar">
     <span>Lista de Modalidades</span>
-    <button class="botao botao-toolbar">Nova Modalidade</button>
+    <button class="botao botao-toolbar">
+      <mat-icon>add</mat-icon>
+      Nova Modalidade
+    </button>
   </mat-toolbar>
   <table
     mat-table
     [dataSource]="modalidades"
     class="mat-elevation-z8"
-    *ngIf="modalidades.length > 0; else tabelaVazia"
+    *ngIf="modalidades$ | async as modalidades; else tabelaVazia"
   >
     <ng-container matColumnDef="id">
       <th mat-header-cell class="coluna" *matHeaderCellDef>Id</th>
@@ -31,8 +34,8 @@
     <ng-container matColumnDef="opcoes">
       <th mat-header-cell class="coluna" *matHeaderCellDef>Opções</th>
       <td mat-cell *matCellDef="let modalidade">
-        <button class="botao botao-editar">Editar</button>
-        <button class="botao botao-excluir">Excluir</button>
+        <button type="button" class="botao botao-editar">Editar</button>
+        <button type="button" class="botao botao-excluir">Excluir</button>
       </td>
     </ng-container>
 
