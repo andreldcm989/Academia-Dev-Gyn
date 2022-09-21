@@ -1,12 +1,17 @@
 package com.academia.spring.model;
 
 import java.io.Serializable;
+import java.sql.Date;
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -24,18 +29,17 @@ public class Modalidade implements Serializable {
     private String nomeModalidade;
 
     @Column(name = "criado_em")
-    private String dataCriacao;
+    private Date dataCriacao;
+
+    @OneToMany(mappedBy = "modalidade")
+    private List<Turma> turmas = new ArrayList<>();
 
     public Modalidade() {
     }
 
     public Modalidade(String nome) {
         this.nomeModalidade = nome;
-    }
-
-    public Modalidade(String nome, String dataCriacao) {
-        this.nomeModalidade = nome;
-        this.dataCriacao = dataCriacao;
+        this.dataCriacao = Date.valueOf(LocalDate.now());
     }
 
     public Long getId() {
@@ -50,7 +54,15 @@ public class Modalidade implements Serializable {
         this.nomeModalidade = nomeModalidade;
     }
 
-    public String getDataCriacao() {
+    public Date getDataCriacao() {
         return dataCriacao;
+    }
+
+    public void adicionarTurma(Turma turma) {
+        turmas.add(turma);
+    }
+
+    public void excluirTurma(Turma turma) {
+        turmas.remove(turma);
     }
 }

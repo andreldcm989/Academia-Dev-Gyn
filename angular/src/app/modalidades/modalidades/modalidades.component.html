@@ -3,7 +3,7 @@
     <span>Lista de Modalidades</span>
     <button class="botao botao-toolbar">
       <mat-icon>add</mat-icon>
-      Nova Modalidade
+      Adicionar
     </button>
   </mat-toolbar>
   <table
@@ -27,7 +27,7 @@
     <ng-container matColumnDef="dataCriacao">
       <th mat-header-cell class="coluna" *matHeaderCellDef>Data Criação</th>
       <td mat-cell *matCellDef="let modalidade">
-        {{ modalidade.dataCriacao }}
+        {{ modalidade.dataCriacao | date: "dd/MM/yyyy" }}
       </td>
     </ng-container>
 
@@ -43,6 +43,6 @@
     <tr mat-row *matRowDef="let row; columns: ordemColunas"></tr>
   </table>
   <ng-template #tabelaVazia>
-    <h2>Nenhuma modalidade cadastrada.</h2>
+    <h2 class="listavazia">Nenhuma modalidade cadastrada.</h2>
   </ng-template>
 </mat-card>

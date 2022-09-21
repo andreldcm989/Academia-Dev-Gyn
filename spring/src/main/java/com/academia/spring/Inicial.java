@@ -17,11 +17,11 @@ public class Inicial implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        Modalidade m1 = new Modalidade("Natação", "17/09/2022");
-        Modalidade m2 = new Modalidade("Musculação", "18/09/2022");
-        Modalidade m3 = new Modalidade("Crossfit", "19/09/2022");
-        Modalidade m4 = new Modalidade("Spinning", "19/09/2022");
-        Modalidade m5 = new Modalidade("Yoga", "19/09/2022");
+        Modalidade m1 = new Modalidade("Natação");
+        Modalidade m2 = new Modalidade("Musculação");
+        Modalidade m3 = new Modalidade("Crossfit");
+        Modalidade m4 = new Modalidade("Spinning");
+        Modalidade m5 = new Modalidade("Yoga");
 
         repository.saveAll(Arrays.asList(m1, m2, m3, m4, m5));
 

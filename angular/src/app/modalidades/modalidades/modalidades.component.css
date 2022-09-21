@@ -43,6 +43,9 @@ table,
   color: #000000;
   width: 130px;
   height: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
 }
 .botao-editar {
   background: #10687a;
@@ -51,4 +54,8 @@ table,
 .botao-excluir {
   background: #c61414;
   color: #ffffff;
+}
+
+.listavazia {
+  margin-top: 20px;
 }
