@@ -31,7 +31,8 @@ public class ModalidadeService {
     }
 
     public Modalidade salvarModalidade(Modalidade modalidade) {
-        return repository.save(modalidade);
+        Modalidade m = new Modalidade(modalidade.getNomeModalidade());
+        return repository.save(m);
     }
 
     public void excluirModalidade(Long id) {

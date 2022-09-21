@@ -8,12 +8,14 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 @Entity
@@ -28,10 +30,11 @@ public class Modalidade implements Serializable {
     @Column(name = "nome", nullable = false, length = 80)
     private String nomeModalidade;
 
-    @Column(name = "criado_em")
+    @Column(name = "criado_em", nullable = false)
+    @JsonFormat(pattern = "dd/MM/yyyy", locale = "pt-BR")
     private Date dataCriacao;
 
-    @OneToMany(mappedBy = "modalidade")
+    @OneToMany(mappedBy = "modalidade", fetch = FetchType.LAZY)
     private List<Turma> turmas = new ArrayList<>();
 
     public Modalidade() {
@@ -56,6 +59,10 @@ public class Modalidade implements Serializable {
 
     public Date getDataCriacao() {
         return dataCriacao;
+    }
+
+    public List<Turma> getTurmas() {
+        return turmas;
     }
 
     public void adicionarTurma(Turma turma) {
