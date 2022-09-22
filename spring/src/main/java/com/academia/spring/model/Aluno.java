@@ -24,8 +24,8 @@ public class Aluno extends Pessoa {
     }
 
     public Aluno(String nome, String sexo, String cpf, java.sql.Date nascimento, String email, String escolaridade,
-            Long telefone, String categoria, java.sql.Date dataCadastro, Date dataMatricula) {
-        super(nome, sexo, cpf, nascimento, email, escolaridade, telefone, categoria, dataCadastro);
+            Long telefone, Date dataCadastro) {
+        super(nome, sexo, cpf, nascimento, email, escolaridade, telefone, (java.sql.Date) dataCadastro);
     }
 
     public List<Matricula> getMatriculas() {
@@ -34,6 +34,10 @@ public class Aluno extends Pessoa {
 
     public List<Turma> getTurmas() {
         return turmas;
+    }
+
+    public List<Avaliacao> getAvaliacoes() {
+        return avaliacoes;
     }
 
 }

@@ -24,15 +24,13 @@ public class Pessoa implements Serializable {
     private String escolaridade;
     private String email;
     private Long telefone;
-    private String categoria;
     private Date dataCadastro;
 
     public Pessoa() {
     }
 
     public Pessoa(String nome, String sexo, String cpf, Date nascimento, String email, String escolaridade,
-            Long telefone,
-            String categoria, Date dataCadastro) {
+            Long telefone, Date dataCadastro) {
         this.nome = nome;
         this.sexo = sexo;
         this.cpf = cpf;
@@ -40,7 +38,6 @@ public class Pessoa implements Serializable {
         this.email = email;
         this.escolaridade = escolaridade;
         this.telefone = telefone;
-        this.categoria = categoria;
         this.dataCadastro = dataCadastro;
     }
 
@@ -94,14 +91,6 @@ public class Pessoa implements Serializable {
 
     public void setTelefone(Long telefone) {
         this.telefone = telefone;
-    }
-
-    public String getCategoria() {
-        return categoria;
-    }
-
-    public void setCategoria(String categoria) {
-        this.categoria = categoria;
     }
 
     public Date getDataCadastro() {

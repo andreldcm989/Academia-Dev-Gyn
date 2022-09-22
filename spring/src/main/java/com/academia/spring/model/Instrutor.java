@@ -23,9 +23,9 @@ public class Instrutor extends Pessoa {
     }
 
     public Instrutor(String nome, String sexo, String cpf, Date nascimento, String email, String escolaridade,
-            Long telefone, String categoria, Date dataCadastro, String setor, String cargo, Double salario,
+            Long telefone, Date dataCadastro, String setor, String cargo, Double salario,
             Date admissao, Integer cargaHorariaSemanal, String tipoContrato) {
-        super(nome, sexo, cpf, nascimento, email, escolaridade, telefone, categoria, dataCadastro);
+        super(nome, sexo, cpf, nascimento, email, escolaridade, telefone, dataCadastro);
         this.setor = setor;
         this.cargo = cargo;
         this.salario = salario;

@@ -45,13 +45,13 @@ public class Turma implements Serializable {
     public Turma() {
     };
 
-    public Modalidade getModalidade() {
-        return modalidade;
-    }
-
     public Turma(Date dataCriacao, Modalidade modalidade) {
         this.dataCriacao = dataCriacao;
         this.modalidade = modalidade;
+    }
+
+    public Modalidade getModalidade() {
+        return modalidade;
     }
 
     public void setModalidade(Modalidade modalidade) {

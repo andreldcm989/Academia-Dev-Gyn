@@ -36,8 +36,7 @@ public class Matricula implements Serializable {
     public Matricula() {
     }
 
-    public Matricula(Date dataMatricula, Aluno aluno, Modalidade modalidade, Turma turma,
-            Instrutor instrutor) {
+    public Matricula(Date dataMatricula, Aluno aluno, Modalidade modalidade, Turma turma) {
         this.dataMatricula = dataMatricula;
         this.aluno = aluno;
         this.modalidade = modalidade;
