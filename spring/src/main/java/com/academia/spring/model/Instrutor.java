@@ -2,7 +2,10 @@ package com.academia.spring.model;
 
 import java.sql.Date;
 
-public class Funcionario extends Pessoa {
+import javax.persistence.Entity;
+
+@Entity
+public class Instrutor extends Pessoa {
 
     private String setor;
     private String cargo;
@@ -12,10 +15,10 @@ public class Funcionario extends Pessoa {
     private Integer cargaHorariaSemanal;
     private String tipoContrato;
 
-    public Funcionario() {
+    public Instrutor() {
     }
 
-    public Funcionario(String nome, String sexo, String cpf, Date nascimento, String email, String escolaridade,
+    public Instrutor(String nome, String sexo, String cpf, Date nascimento, String email, String escolaridade,
             Long telefone, String categoria, Date dataCadastro, String setor, String cargo, Double salario,
             Date admissao, Integer cargaHorariaSemanal, String tipoContrato) {
         super(nome, sexo, cpf, nascimento, email, escolaridade, telefone, categoria, dataCadastro);

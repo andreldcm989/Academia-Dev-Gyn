@@ -13,7 +13,7 @@ import com.academia.spring.repository.ModalidadeRepository;
 public class Inicial implements CommandLineRunner {
 
     @Autowired
-    private ModalidadeRepository repository;
+    private ModalidadeRepository modalidadeRepository;
 
     @Override
     public void run(String... args) throws Exception {
@@ -23,7 +23,7 @@ public class Inicial implements CommandLineRunner {
         Modalidade m4 = new Modalidade("Spinning");
         Modalidade m5 = new Modalidade("Yoga");
 
-        repository.saveAll(Arrays.asList(m1, m2, m3, m4, m5));
+        modalidadeRepository.saveAll(Arrays.asList(m1, m2, m3, m4, m5));
 
     }
 

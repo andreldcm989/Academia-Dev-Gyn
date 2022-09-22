@@ -1,5 +1,6 @@
 package com.academia.spring.model;
 
+import java.io.Serializable;
 import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
@@ -10,6 +11,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
@@ -18,7 +20,7 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 
 @Entity
 @Table(name = "turma")
-public class Turma {
+public class Turma implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -34,9 +36,10 @@ public class Turma {
 
     @ManyToOne
     @JoinColumn(name = "instrutor_id")
-    private Funcionario instrutor;
+    private Instrutor instrutor;
 
-    // ver relacionamento
+    @ManyToMany
+    @JoinTable(name = "matricula", joinColumns = @JoinColumn(name = "turma_id"), inverseJoinColumns = @JoinColumn(name = "aluno_id"))
     private List<Aluno> alunos = new ArrayList<>();
 
     public Turma() {
@@ -46,8 +49,7 @@ public class Turma {
         return modalidade;
     }
 
-    public Turma(Long id, Date dataCriacao, Modalidade modalidade) {
-        this.id = id;
+    public Turma(Date dataCriacao, Modalidade modalidade) {
         this.dataCriacao = dataCriacao;
         this.modalidade = modalidade;
     }
@@ -56,11 +58,11 @@ public class Turma {
         this.modalidade = modalidade;
     }
 
-    public Funcionario getInstrutor() {
+    public Instrutor getInstrutor() {
         return instrutor;
     }
 
-    public void setInstrutor(Funcionario instrutor) {
+    public void setInstrutor(Instrutor instrutor) {
         this.instrutor = instrutor;
     }
 
