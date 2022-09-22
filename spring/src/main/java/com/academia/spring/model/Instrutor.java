@@ -4,13 +4,17 @@ import java.sql.Date;
 
 import javax.persistence.Entity;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 @Entity
 public class Instrutor extends Pessoa {
 
     private String setor;
     private String cargo;
     private Double salario;
+    @JsonFormat(pattern = "dd/MM/yyyy")
     private Date admissao;
+    @JsonFormat(pattern = "dd/MM/yyyy")
     private Date demissao;
     private Integer cargaHorariaSemanal;
     private String tipoContrato;

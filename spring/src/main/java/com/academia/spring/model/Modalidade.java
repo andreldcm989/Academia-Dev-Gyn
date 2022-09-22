@@ -31,7 +31,7 @@ public class Modalidade implements Serializable {
     private String nomeModalidade;
 
     @Column(name = "criado_em", nullable = false)
-    @JsonFormat(pattern = "dd/MM/yyyy", locale = "pt-BR")
+    @JsonFormat(pattern = "dd/MM/yyyy HH:mm:ss", locale = "pt-BR")
     private Date dataCriacao;
 
     @OneToMany(mappedBy = "modalidade")
@@ -64,16 +64,12 @@ public class Modalidade implements Serializable {
         return dataCriacao;
     }
 
+    public List<Matricula> getMatriculas() {
+        return matriculas;
+    }
+
     public List<Turma> getTurmas() {
         return turmas;
-    }
-
-    public void adicionarTurma(Turma turma) {
-        turmas.add(turma);
-    }
-
-    public void excluirTurma(Turma turma) {
-        turmas.remove(turma);
     }
 
 }

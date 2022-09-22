@@ -70,12 +70,4 @@ public class Turma implements Serializable {
         return alunos;
     }
 
-    public void adicionarAluno(Aluno aluno) {
-        alunos.add(aluno);
-    }
-
-    public void removerAluno(Aluno aluno) {
-        alunos.remove(aluno);
-    }
-
 }
