@@ -1,6 +1,7 @@
 package com.academia.spring.model;
 
-import java.time.Instant;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 import javax.persistence.Entity;
 
@@ -12,19 +13,19 @@ public class Instrutor extends Pessoa {
     private String setor;
     private String cargo;
     private Double salario;
-    @JsonFormat(pattern = "dd/MM/yyyy")
-    private Instant admissao;
-    @JsonFormat(pattern = "dd/MM/yyyy")
-    private Instant demissao;
+    @JsonFormat(pattern = "dd/MM/yyyy HH:mm:ss", locale = "pt-BR", timezone = "GMT-3")
+    private LocalDateTime admissao;
+    @JsonFormat(pattern = "dd/MM/yyyy HH:mm:ss", locale = "pt-BR", timezone = "GMT-3")
+    private LocalDateTime demissao;
     private Integer cargaHorariaSemanal;
     private String tipoContrato;
 
     public Instrutor() {
     }
 
-    public Instrutor(String nome, String sexo, String cpf, Instant nascimento, String email, String escolaridade,
-            Long telefone, Instant dataCadastro, String setor, String cargo, Double salario,
-            Instant admissao, Integer cargaHorariaSemanal, String tipoContrato) {
+    public Instrutor(String nome, String sexo, String cpf, LocalDate nascimento, String email, String escolaridade,
+            Long telefone, LocalDateTime dataCadastro, String setor, String cargo, Double salario,
+            LocalDateTime admissao, Integer cargaHorariaSemanal, String tipoContrato) {
         super(nome, sexo, cpf, nascimento, email, escolaridade, telefone, dataCadastro);
         this.setor = setor;
         this.cargo = cargo;
@@ -58,15 +59,15 @@ public class Instrutor extends Pessoa {
         this.salario = salario;
     }
 
-    public Instant getAdmissao() {
+    public LocalDateTime getAdmissao() {
         return admissao;
     }
 
-    public Instant getDemissao() {
+    public LocalDateTime getDemissao() {
         return demissao;
     }
 
-    public void setDemissao(Instant demissao) {
+    public void setDemissao(LocalDateTime demissao) {
         this.demissao = demissao;
     }
 

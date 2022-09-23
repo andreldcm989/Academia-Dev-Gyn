@@ -3,6 +3,7 @@ package com.academia.spring;
 import java.sql.Date;
 import java.time.Instant;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Arrays;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -48,15 +49,15 @@ public class Inicial implements CommandLineRunner {
 
                 modalidadeRepository.saveAll(Arrays.asList(m1, m2, m3, m4, m5));
 
-                Aluno a1 = new Aluno("André", "M", "012345678", Instant.parse("2000-12-03T10:15:30.00Z"),
+                Aluno a1 = new Aluno("André", "M", "012345678", LocalDate.of(1999, 02, 22),
                                 "andre@gmail.com",
-                                "Superior cursando", 1199998877L, Instant.now());
-                Aluno a2 = new Aluno("José", "M", "220099876", Instant.parse("1977-12-03T10:15:30.00Z"),
+                                "Superior cursando", 1199998877L, LocalDateTime.now());
+                Aluno a2 = new Aluno("José", "M", "220099876", LocalDate.of(1980, 03, 14),
                                 "jose@gmail.com",
-                                "Superior completo", 1193390088L, Instant.now());
-                Aluno a3 = new Aluno("Maria", "F", "3344556677", Instant.parse("1990-03-03T10:15:30.00Z"),
+                                "Superior completo", 1193390088L, LocalDateTime.now());
+                Aluno a3 = new Aluno("Maria", "F", "3344556677", LocalDate.of(1990, 03, 13),
                                 "maria@gmail.com",
-                                "Doutorado", 3188990077L, Instant.now());
+                                "Doutorado", 3188990077L, LocalDateTime.now());
 
                 alunoRepository.saveAll(Arrays.asList(a1, a2, a3));
 
@@ -70,10 +71,10 @@ public class Inicial implements CommandLineRunner {
                 alunoRepository.saveAll(Arrays.asList(a1, a2));
 
                 Instrutor i1 = new Instrutor("Marcelo", "M", "9988770142534",
-                                Instant.parse("1980-11-13T10:15:30.00Z"),
+                                LocalDate.of(1980, 12, 12),
                                 "marcelo@academia.com", "Bacharel em Educação Física", 3198765678L,
-                                Instant.now(),
-                                "Educação", "Instrutor", 2990.50, Instant.now(), 44,
+                                LocalDateTime.now(),
+                                "Educação", "Instrutor", 2990.50, LocalDateTime.now().plusDays(5), 44,
                                 "CLT");
 
                 instrutorRepository.save(i1);

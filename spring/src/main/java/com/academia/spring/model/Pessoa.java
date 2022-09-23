@@ -1,7 +1,8 @@
 package com.academia.spring.model;
 
 import java.io.Serializable;
-import java.time.Instant;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -20,20 +21,21 @@ public class Pessoa implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String nome;
-    private Instant nascimento;
+    @JsonFormat(pattern = "dd/MM/yyyy", locale = "pt-BR", timezone = "GMT-3")
+    private LocalDate nascimento;
     private String sexo;
     private String cpf;
     private String escolaridade;
     private String email;
     private Long telefone;
     @JsonFormat(pattern = "dd/MM/yyyy HH:mm:ss", locale = "pt-BR", timezone = "GMT-3")
-    private Instant dataCadastro;
+    private LocalDateTime dataCadastro;
 
     public Pessoa() {
     }
 
-    public Pessoa(String nome, String sexo, String cpf, Instant nascimento, String email, String escolaridade,
-            Long telefone, Instant dataCadastro) {
+    public Pessoa(String nome, String sexo, String cpf, LocalDate nascimento, String email, String escolaridade,
+            Long telefone, LocalDateTime dataCadastro) {
         this.nome = nome;
         this.sexo = sexo;
         this.cpf = cpf;
@@ -68,7 +70,7 @@ public class Pessoa implements Serializable {
         return cpf;
     }
 
-    public Instant getNascimento() {
+    public LocalDate getNascimento() {
         return nascimento;
     }
 
@@ -96,7 +98,7 @@ public class Pessoa implements Serializable {
         this.telefone = telefone;
     }
 
-    public Instant getDataCadastro() {
+    public LocalDateTime getDataCadastro() {
         return dataCadastro;
     }
 }

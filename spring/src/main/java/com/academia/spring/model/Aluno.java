@@ -1,6 +1,7 @@
 package com.academia.spring.model;
 
-import java.time.Instant;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -27,8 +28,8 @@ public class Aluno extends Pessoa {
     public Aluno() {
     }
 
-    public Aluno(String nome, String sexo, String cpf, Instant nascimento, String email, String escolaridade,
-            Long telefone, Instant dataCadastro) {
+    public Aluno(String nome, String sexo, String cpf, LocalDate nascimento, String email, String escolaridade,
+            Long telefone, LocalDateTime dataCadastro) {
         super(nome, sexo, cpf, nascimento, email, escolaridade, telefone, dataCadastro);
     }
 
