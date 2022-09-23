@@ -6,9 +6,11 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './shared/material/material.module';
 import { HttpClientModule } from '@angular/common/http';
+import { MatriculasComponent } from './matriculas/matriculas.component';
+import { TurmasComponent } from './turmas/turmas.component';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, MatriculasComponent, TurmasComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
