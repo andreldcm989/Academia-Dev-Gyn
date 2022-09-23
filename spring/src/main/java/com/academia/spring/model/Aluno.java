@@ -1,19 +1,23 @@
 package com.academia.spring.model;
 
+import java.time.Instant;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class Aluno extends Pessoa {
 
+    @JsonIgnore
     @OneToMany(mappedBy = "aluno")
     private List<Matricula> matriculas;
 
+    @JsonIgnore
     @ManyToMany(mappedBy = "alunos")
     private List<Turma> turmas = new ArrayList<>();
 
@@ -23,9 +27,9 @@ public class Aluno extends Pessoa {
     public Aluno() {
     }
 
-    public Aluno(String nome, String sexo, String cpf, java.sql.Date nascimento, String email, String escolaridade,
-            Long telefone, Date dataCadastro) {
-        super(nome, sexo, cpf, nascimento, email, escolaridade, telefone, (java.sql.Date) dataCadastro);
+    public Aluno(String nome, String sexo, String cpf, Instant nascimento, String email, String escolaridade,
+            Long telefone, Instant dataCadastro) {
+        super(nome, sexo, cpf, nascimento, email, escolaridade, telefone, dataCadastro);
     }
 
     public List<Matricula> getMatriculas() {

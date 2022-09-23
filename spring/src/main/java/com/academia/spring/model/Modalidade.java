@@ -34,7 +34,7 @@ public class Modalidade implements Serializable {
     @JsonFormat(pattern = "dd/MM/yyyy HH:mm:ss", locale = "pt-BR")
     private Date dataCriacao;
 
-    @OneToMany(mappedBy = "modalidade")
+    @OneToMany(mappedBy = "modalidade", fetch = FetchType.LAZY)
     private List<Matricula> matriculas = new ArrayList<>();
 
     @OneToMany(mappedBy = "modalidade", fetch = FetchType.LAZY)

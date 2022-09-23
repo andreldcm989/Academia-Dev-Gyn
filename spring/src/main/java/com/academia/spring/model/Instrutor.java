@@ -1,6 +1,6 @@
 package com.academia.spring.model;
 
-import java.sql.Date;
+import java.time.Instant;
 
 import javax.persistence.Entity;
 
@@ -13,18 +13,18 @@ public class Instrutor extends Pessoa {
     private String cargo;
     private Double salario;
     @JsonFormat(pattern = "dd/MM/yyyy")
-    private Date admissao;
+    private Instant admissao;
     @JsonFormat(pattern = "dd/MM/yyyy")
-    private Date demissao;
+    private Instant demissao;
     private Integer cargaHorariaSemanal;
     private String tipoContrato;
 
     public Instrutor() {
     }
 
-    public Instrutor(String nome, String sexo, String cpf, Date nascimento, String email, String escolaridade,
-            Long telefone, Date dataCadastro, String setor, String cargo, Double salario,
-            Date admissao, Integer cargaHorariaSemanal, String tipoContrato) {
+    public Instrutor(String nome, String sexo, String cpf, Instant nascimento, String email, String escolaridade,
+            Long telefone, Instant dataCadastro, String setor, String cargo, Double salario,
+            Instant admissao, Integer cargaHorariaSemanal, String tipoContrato) {
         super(nome, sexo, cpf, nascimento, email, escolaridade, telefone, dataCadastro);
         this.setor = setor;
         this.cargo = cargo;
@@ -58,15 +58,15 @@ public class Instrutor extends Pessoa {
         this.salario = salario;
     }
 
-    public Date getAdmissao() {
+    public Instant getAdmissao() {
         return admissao;
     }
 
-    public Date getDemissao() {
+    public Instant getDemissao() {
         return demissao;
     }
 
-    public void setDemissao(Date demissao) {
+    public void setDemissao(Instant demissao) {
         this.demissao = demissao;
     }
 

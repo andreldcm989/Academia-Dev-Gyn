@@ -11,6 +11,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 public class Matricula implements Serializable {
@@ -21,6 +22,7 @@ public class Matricula implements Serializable {
     @JsonFormat(pattern = "dd/MM/yyyy HH:mm:ss", locale = "pt-BR")
     private Date dataMatricula;
 
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "aluno_id")
     private Aluno aluno;

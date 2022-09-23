@@ -1,7 +1,7 @@
 package com.academia.spring.model;
 
 import java.io.Serializable;
-import java.sql.Date;
+import java.time.Instant;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -10,6 +10,9 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class Avaliacao implements Serializable {
 
@@ -17,6 +20,7 @@ public class Avaliacao implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "aluno_id")
     private Aluno aluno;
@@ -25,12 +29,13 @@ public class Avaliacao implements Serializable {
 
     private double altura;
 
-    private Date dataAvaliacao;
+    @JsonFormat(pattern = "dd/MM/yyyy HH:mm:ss", locale = "pt-BR", timezone = "GMT-3")
+    private Instant dataAvaliacao;
 
     public Avaliacao() {
     }
 
-    public Avaliacao(Aluno aluno, double peso, double altura, Date dataAvaliacao) {
+    public Avaliacao(Aluno aluno, double peso, double altura, Instant dataAvaliacao) {
         this.aluno = aluno;
         this.peso = peso;
         this.altura = altura;
@@ -53,7 +58,7 @@ public class Avaliacao implements Serializable {
         return altura;
     }
 
-    public Date getDataAvaliacao() {
+    public Instant getDataAvaliacao() {
         return dataAvaliacao;
     }
 

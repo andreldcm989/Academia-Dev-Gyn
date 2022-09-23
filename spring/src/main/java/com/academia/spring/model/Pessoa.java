@@ -1,7 +1,7 @@
 package com.academia.spring.model;
 
 import java.io.Serializable;
-import java.sql.Date;
+import java.time.Instant;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -9,6 +9,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 @Entity
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
@@ -18,19 +20,20 @@ public class Pessoa implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String nome;
-    private Date nascimento;
+    private Instant nascimento;
     private String sexo;
     private String cpf;
     private String escolaridade;
     private String email;
     private Long telefone;
-    private Date dataCadastro;
+    @JsonFormat(pattern = "dd/MM/yyyy HH:mm:ss", locale = "pt-BR", timezone = "GMT-3")
+    private Instant dataCadastro;
 
     public Pessoa() {
     }
 
-    public Pessoa(String nome, String sexo, String cpf, Date nascimento, String email, String escolaridade,
-            Long telefone, Date dataCadastro) {
+    public Pessoa(String nome, String sexo, String cpf, Instant nascimento, String email, String escolaridade,
+            Long telefone, Instant dataCadastro) {
         this.nome = nome;
         this.sexo = sexo;
         this.cpf = cpf;
@@ -65,7 +68,7 @@ public class Pessoa implements Serializable {
         return cpf;
     }
 
-    public Date getNascimento() {
+    public Instant getNascimento() {
         return nascimento;
     }
 
@@ -93,7 +96,7 @@ public class Pessoa implements Serializable {
         this.telefone = telefone;
     }
 
-    public Date getDataCadastro() {
+    public Instant getDataCadastro() {
         return dataCadastro;
     }
 }
