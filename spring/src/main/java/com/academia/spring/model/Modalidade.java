@@ -16,6 +16,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 @Entity
@@ -34,9 +35,11 @@ public class Modalidade implements Serializable {
     @JsonFormat(pattern = "dd/MM/yyyy HH:mm:ss", locale = "pt-BR")
     private Date dataCriacao;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "modalidade", fetch = FetchType.LAZY)
     private List<Matricula> matriculas = new ArrayList<>();
 
+    @JsonIgnore
     @OneToMany(mappedBy = "modalidade", fetch = FetchType.LAZY)
     private List<Turma> turmas = new ArrayList<>();
 
