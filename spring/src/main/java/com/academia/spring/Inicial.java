@@ -83,6 +83,7 @@ public class Inicial implements CommandLineRunner {
 
                 Matricula matA1 = new Matricula(Date.valueOf(LocalDate.now()), a1, m2, t1);
                 matriculaRepository.save(matA1);
+
         }
 
 }
