@@ -4,16 +4,8 @@ import { AlunosComponent } from './alunos/alunos.component';
 import { InstrutoresComponent } from './instrutores/instrutores.component';
 import { AvaliacoesComponent } from './alunos/avaliacoes/avaliacoes.component';
 
-
-
 @NgModule({
-  declarations: [
-    AlunosComponent,
-    InstrutoresComponent,
-    AvaliacoesComponent
-  ],
-  imports: [
-    CommonModule
-  ]
+  declarations: [AlunosComponent, InstrutoresComponent, AvaliacoesComponent],
+  imports: [CommonModule],
 })
-export class PessoasModule { }
+export class PessoasModule {}

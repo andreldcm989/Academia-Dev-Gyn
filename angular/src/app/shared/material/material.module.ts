@@ -9,6 +9,7 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatTreeModule } from '@angular/material/tree';
+import { MatMenuModule } from '@angular/material/menu';
 
 @NgModule({
   exports: [
@@ -22,6 +23,7 @@ import { MatTreeModule } from '@angular/material/tree';
     MatDialogModule,
     MatExpansionModule,
     MatTreeModule,
+    MatMenuModule,
   ],
 })
 export class MaterialModule {}

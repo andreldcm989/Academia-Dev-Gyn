@@ -1,10 +1,47 @@
 <header>
   <mat-toolbar class="toolbar" width="100%">
-    <button mat-icon-button class="menu-button" aria-label="icone do menu">
+    <button
+      mat-icon-button
+      class="menu-button"
+      aria-label="icone do menu"
+      [matMenuTriggerFor]="opcoes"
+    >
       <mat-icon>menu</mat-icon>
+      <mat-menu #opcoes="matMenu">
+        <button mat-menu-item [mat-menu-trigger-for]="modalidades">
+          Modalidades
+        </button>
+        <button mat-menu-item [mat-menu-trigger-for]="turmas">Turmas</button>
+        <button mat-menu-item [mat-menu-trigger-for]="instrutores">
+          Instrutores
+        </button>
+        <button mat-menu-item [mat-menu-trigger-for]="matriculas">
+          Matrículas
+        </button>
+        <button mat-menu-item [mat-menu-trigger-for]="alunos">Alunos</button>
+      </mat-menu>
+      <mat-menu #modalidades="matMenu">
+        <button mat-menu-item>Cadastro</button>
+        <button mat-menu-item>Listar Modalidades</button>
+      </mat-menu>
+      <mat-menu #turmas="matMenu">
+        <button mat-menu-item>Cadastro</button>
+        <button mat-menu-item>Listar Turmas</button>
+      </mat-menu>
+      <mat-menu #instrutores="matMenu">
+        <button mat-menu-item>Cadastro</button>
+        <button mat-menu-item>Listar Instrutores</button>
+      </mat-menu>
+      <mat-menu #matriculas="matMenu">
+        <button mat-menu-item>Cadastro</button>
+        <button mat-menu-item>Listar Matriculas</button>
+      </mat-menu>
+      <mat-menu #alunos="matMenu">
+        <button mat-menu-item>Cadastro</button>
+        <button mat-menu-item>Listar Alunos</button>
+      </mat-menu>
     </button>
-    <h2>Academia</h2>
+    <h2>Academia Dev Gym</h2>
   </mat-toolbar>
-  <nav>Teste</nav>
 </header>
 <router-outlet></router-outlet>

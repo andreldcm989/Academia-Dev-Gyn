@@ -8,3 +8,7 @@
   border: none;
   background: transparent;
 }
+
+.navbar {
+  transition: 0.2s all ease-in-out;
+}
