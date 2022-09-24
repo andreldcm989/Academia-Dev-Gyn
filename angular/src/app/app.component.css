@@ -1,3 +1,6 @@
+header {
+  width: 100vw;
+}
 .toolbar {
   background: #05445e;
   color: #ffffff;
@@ -9,6 +12,6 @@
   background: transparent;
 }
 
-.navbar {
-  transition: 0.2s all ease-in-out;
+#logo {
+  cursor: pointer;
 }

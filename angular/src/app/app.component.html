@@ -22,26 +22,30 @@
       </mat-menu>
       <mat-menu #modalidades="matMenu">
         <button mat-menu-item>Cadastro</button>
-        <button mat-menu-item>Listar Modalidades</button>
+        <button mat-menu-item routerLink="modalidades">
+          Listar Modalidades
+        </button>
       </mat-menu>
       <mat-menu #turmas="matMenu">
         <button mat-menu-item>Cadastro</button>
-        <button mat-menu-item>Listar Turmas</button>
+        <button mat-menu-item routerLink="turmas">Listar Turmas</button>
       </mat-menu>
       <mat-menu #instrutores="matMenu">
         <button mat-menu-item>Cadastro</button>
-        <button mat-menu-item>Listar Instrutores</button>
+        <button mat-menu-item routerLink="instrutores">
+          Listar Instrutores
+        </button>
       </mat-menu>
       <mat-menu #matriculas="matMenu">
         <button mat-menu-item>Cadastro</button>
-        <button mat-menu-item>Listar Matriculas</button>
+        <button mat-menu-item routerLink="matriculas">Listar Matriculas</button>
       </mat-menu>
       <mat-menu #alunos="matMenu">
         <button mat-menu-item>Cadastro</button>
-        <button mat-menu-item>Listar Alunos</button>
+        <button mat-menu-item routerLink="alunos">Listar Alunos</button>
       </mat-menu>
     </button>
-    <h2>Academia Dev Gym</h2>
+    <h2 routerLink="home" id="logo">Academia Dev Gym</h2>
   </mat-toolbar>
 </header>
 <router-outlet></router-outlet>
