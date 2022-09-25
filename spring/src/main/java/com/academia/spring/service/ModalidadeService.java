@@ -1,5 +1,6 @@
 package com.academia.spring.service;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 import javax.persistence.EntityNotFoundException;
@@ -31,6 +32,7 @@ public class ModalidadeService {
     }
 
     public Modalidade salvarModalidade(Modalidade modalidade) {
+        modalidade.setDataCriacao(LocalDateTime.now());
         return repository.save(modalidade);
     }
 

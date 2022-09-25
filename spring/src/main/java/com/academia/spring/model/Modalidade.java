@@ -3,6 +3,7 @@ package com.academia.spring.model;
 import java.io.Serializable;
 import java.sql.Date;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -33,7 +34,7 @@ public class Modalidade implements Serializable {
 
     @Column(name = "criado_em", nullable = false)
     @JsonFormat(pattern = "dd/MM/yyyy HH:mm:ss", locale = "pt-BR")
-    private Date dataCriacao;
+    private LocalDateTime dataCriacao;
 
     @JsonIgnore
     @OneToMany(mappedBy = "modalidade", fetch = FetchType.LAZY)
@@ -48,7 +49,6 @@ public class Modalidade implements Serializable {
 
     public Modalidade(String nome) {
         this.nomeModalidade = nome;
-        this.dataCriacao = Date.valueOf(LocalDate.now());
     }
 
     public Long getId() {
@@ -63,8 +63,12 @@ public class Modalidade implements Serializable {
         this.nomeModalidade = nomeModalidade;
     }
 
-    public Date getDataCriacao() {
+    public LocalDateTime getDataCriacao() {
         return dataCriacao;
+    }
+
+    public void setDataCriacao(LocalDateTime dataCriacao) {
+        this.dataCriacao = dataCriacao;
     }
 
     public List<Matricula> getMatriculas() {

@@ -42,10 +42,15 @@ public class Inicial implements CommandLineRunner {
         @Override
         public void run(String... args) throws Exception {
                 Modalidade m1 = new Modalidade("Natação");
+                m1.setDataCriacao(LocalDateTime.now());
                 Modalidade m2 = new Modalidade("Musculação");
+                m2.setDataCriacao(LocalDateTime.now());
                 Modalidade m3 = new Modalidade("Crossfit");
+                m3.setDataCriacao(LocalDateTime.now());
                 Modalidade m4 = new Modalidade("Spinning");
+                m4.setDataCriacao(LocalDateTime.now());
                 Modalidade m5 = new Modalidade("Yoga");
+                m5.setDataCriacao(LocalDateTime.now());
 
                 modalidadeRepository.saveAll(Arrays.asList(m1, m2, m3, m4, m5));
 
