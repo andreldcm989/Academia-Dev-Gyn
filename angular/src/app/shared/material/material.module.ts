@@ -11,6 +11,8 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import { MatTreeModule } from '@angular/material/tree';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatGridListModule } from '@angular/material/grid-list';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   exports: [
@@ -26,6 +28,8 @@ import { MatGridListModule } from '@angular/material/grid-list';
     MatTreeModule,
     MatMenuModule,
     MatGridListModule,
+    MatFormFieldModule,
+    FormsModule,
   ],
 })
 export class MaterialModule {}
