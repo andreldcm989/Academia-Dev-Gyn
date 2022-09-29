@@ -1,7 +1,9 @@
 package com.academia.spring.controller;
 
 import java.util.List;
+import java.time.LocalDateTime;
 
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -15,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.academia.spring.model.Modalidade;
+import com.academia.spring.model.dto.ModalidadeDto;
 import com.academia.spring.service.ModalidadeService;
 
 @RestController
@@ -35,10 +38,13 @@ public class ModalidadeController {
     }
 
     @PostMapping
-    public ResponseEntity<Object> salvarModalidade(@RequestBody Modalidade modalidade) {
-        if (service.modalidadeExiste(modalidade.getNomeModalidade())) {
+    public ResponseEntity<Object> salvarModalidade(@RequestBody ModalidadeDto modalidadeDto) {
+        if (service.modalidadeExiste(modalidadeDto.getModalidade())) {
             return ResponseEntity.status(HttpStatus.CONFLICT).body("Já existe uma modalidade com este nome.");
         }
+        Modalidade modalidade = new Modalidade();
+        BeanUtils.copyProperties(modalidadeDto, modalidade);
+        modalidade.setDataCriacao(LocalDateTime.now());
         return ResponseEntity.status(HttpStatus.CREATED).body(service.salvarModalidade(modalidade));
     }
 
